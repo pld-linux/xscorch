@@ -17,8 +17,6 @@ BuildRequires:	gtk+-devel
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
-%define		_prefix		/usr/X11R6
-%define		_mandir		%{_prefix}/man
 
 %description
 Xscorch is a clone of the classic DOS game, "Scorched Earth". The
