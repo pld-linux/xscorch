@@ -38,7 +38,7 @@ czo³gi, zanim oni zniszcz± twój.
 %build
 rm -f missing
 # rebuilding disabled due to problems with static linking in new libtool
-#%{__libtoolize}
+#%%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
