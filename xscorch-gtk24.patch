@@ -1,0 +1,160 @@
+--- xscorch-0.2.0/sgtk/swidgets/slinkcombo.h.orig	2004-02-26 16:27:58.000000000 +0100
++++ xscorch-0.2.0/sgtk/swidgets/slinkcombo.h	2004-03-26 21:14:17.509878256 +0100
+@@ -24,7 +24,7 @@
+ #ifndef __slinkcombo_h_included
+ #define __slinkcombo_h_included
+ 
+-
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <gtk/gtk.h>
+ #include <gtk/gtkcombo.h>
+--- xscorch-0.2.0/sgtk/sdialog-gtk.h.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/sdialog-gtk.h	2004-03-26 21:17:10.947511728 +0100
+@@ -24,7 +24,7 @@
+ #ifndef __sdialog_gtk_h_included
+ #define __sdialog_gtk_h_included
+ 
+-
++#define __ALLOW_DEPRECATED_GTK__
+ /* The order of includes does matter! */
+ #include <swindow-gtk.h>
+ #include <sdialog.h>
+@@ -32,7 +32,6 @@
+ #include <sgame/shelp.h>
+ #include <libj/jstr/libjstr.h>
+ 
+-
+ /* Tooltips and dialogue helpers */
+ static inline GtkWidget *tooltip(sc_window_gtk *w, const char *help, GtkWidget *widget) {
+ 
+--- xscorch-0.2.0/sgtk/sai-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/sai-gtk.c	2004-03-26 21:17:40.337043840 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/seconomy-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/seconomy-gtk.c	2004-03-26 21:18:01.852772952 +0100
+@@ -25,6 +25,7 @@
+ */
+ #include <assert.h>
+ 
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/sfile-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/sfile-gtk.c	2004-03-26 21:18:19.405104592 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/sgraphics-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/sgraphics-gtk.c	2004-03-26 21:18:33.615944216 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <sdisplay.h>
+--- xscorch-0.2.0/sgtk/sland-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/sland-gtk.c	2004-03-26 21:18:49.284562224 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <sdisplay.h>
+--- xscorch-0.2.0/sgtk/smenu-gtk.c.orig	2004-02-26 16:27:56.000000000 +0100
++++ xscorch-0.2.0/sgtk/smenu-gtk.c	2004-03-26 21:19:05.367117304 +0100
+@@ -24,6 +24,7 @@
+ #include <stdio.h>
+ #include <stdlib.h>
+ 
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ 
+--- xscorch-0.2.0/sgtk/snet-gtk.c.orig	2004-03-25 05:41:13.000000000 +0100
++++ xscorch-0.2.0/sgtk/snet-gtk.c	2004-03-26 21:19:22.866457000 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/soptions-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/soptions-gtk.c	2004-03-26 21:19:48.308589208 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/sphysics-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/sphysics-gtk.c	2004-03-26 21:20:02.654408312 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/splayer-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/splayer-gtk.c	2004-03-26 21:20:16.667278032 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/ssound-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/ssound-gtk.c	2004-03-26 21:20:31.324049864 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
+--- xscorch-0.2.0/sgtk/ssystem-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/ssystem-gtk.c	2004-03-26 21:20:48.508437440 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <ssystem-gtk.h>
+ #include <sdialog-gtk.h>
+ #include <ssetup-gtk.h>
+--- xscorch-0.2.0/sgtk/sweapons-gtk.c.orig	2004-02-26 16:27:57.000000000 +0100
++++ xscorch-0.2.0/sgtk/sweapons-gtk.c	2004-03-26 21:21:23.612100872 +0100
+@@ -21,6 +21,7 @@
+    Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ 
+ */
++#define __ALLOW_DEPRECATED_GTK__
+ #include <sgtk.h>
+ #include <sdialog.h>
+ #include <slabel.h>
