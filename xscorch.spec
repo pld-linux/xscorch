@@ -39,8 +39,8 @@ czo³gi, zanim oni zniszcz± twój.
 %build
 libtoolize --copy --force
 aclocal
-autoconf
-automake -a -c -f
+%{__autoconf}
+%{__automake}
 %configure \
 	--enable-network
 %{__make}
