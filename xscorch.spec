@@ -2,7 +2,7 @@ Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
 Summary(pl):	Xscorch - klon klasycznej gry "Scorched Earth"
 Name:		xscorch
 Version:	0.1.14
-Release:	1
+Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
@@ -47,13 +47,13 @@ czo³gi, zanim oni zniszcz± twój.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games}
+install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games/Strategy}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games
+install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Strategy
 
 
 %clean
@@ -65,5 +65,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/xscorch
-%{_applnkdir}/Games/*
+%{_applnkdir}/Games/Strategy/*
 %{_pixmapsdir}/*
