@@ -11,12 +11,12 @@ Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
-BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel >= 1.2.0
-BuildRequires:	libmikmod-devel >= 3.1.9
-#BuildRequires:	libtool
+BuildRequires:	gtk+2-devel >= 2.2.0
+#BuildRequires:	libmikmod-devel >= 3.1.9
+BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	readline-devel
+Requires:	gtk+2 >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -37,30 +37,25 @@ czo³gi, zanim oni zniszcz± twój.
 %setup -q
 
 %build
-#rm -f missing
-# rebuilding disabled due to problems with static linking in new libtool
-#%%{__libtoolize}
-#%{__aclocal}
-#%{__autoconf}
-#%{__automake}
 cp -f /usr/share/automake/config.sub .
 # sound disabled - it's useless (no sound files yet), so there is no
 # reason to require libmikmod
 %configure \
 	--enable-network \
-	--disable-sound
+	--disable-sound \
+	--without-gtk-12
 
 %{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games/Strategy}
+install -d $RPM_BUILD_ROOT{%{_pixmapsdir},%{_desktopdir}}
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 install %{SOURCE1} $RPM_BUILD_ROOT%{_pixmapsdir}
-install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games/Strategy
+install %{SOURCE2} $RPM_BUILD_ROOT%{_desktopdir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -71,5 +66,5 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/xscorch
-%{_applnkdir}/Games/Strategy/*
+%{_desktopdir}/*.desktop
 %{_pixmapsdir}/*
