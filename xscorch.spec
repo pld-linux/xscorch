@@ -33,7 +33,6 @@ not been implemented.
 %setup -q
 
 %build
-LDFLAGS="-s"; export LDFLAGS
 %configure \
 	--enable-network
 %{__make}
@@ -45,11 +44,10 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games}
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-gzip -9nf README NEWS AUTHORS ChangeLog TODO \
-	$RPM_BUILD_ROOT%{_mandir}/man6/*
-
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games
+
+gzip -9nf README NEWS AUTHORS ChangeLog TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
