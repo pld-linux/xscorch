@@ -63,5 +63,6 @@ rm -rf $RPM_BUILD_ROOT
 %doc *.gz
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
+%{_datadir}/xscorch
 %{_applnkdir}/Games/*
 %{_datadir}/pixmaps/*
