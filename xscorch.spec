@@ -6,6 +6,7 @@ Release:	2
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
+# Source0-md5:	6bea7bfae61355cfedf2c673411bbe33
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
@@ -16,7 +17,6 @@ BuildRequires:	gtk+-devel
 #BuildRequires:	libtool
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-
 
 %description
 Xscorch is a clone of the classic DOS game, "Scorched Earth". The
