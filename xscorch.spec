@@ -9,6 +9,7 @@ Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
 # Source0-md5:	42862dbde1d0ebf87be30f7e04462a66
 Source1:	%{name}.png
 Source2:	%{name}.desktop
+Patch0:		%{name}-gtk24.patch
 Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
 BuildRequires:	automake
@@ -35,6 +36,7 @@ czo³gi, zanim oni zniszcz± twój.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 cp -f /usr/share/automake/config.sub .
