@@ -46,7 +46,7 @@ make
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games}
 
-make install \
+%{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
 gzip -9nf README NEWS AUTHORS ChangeLog TODO \
