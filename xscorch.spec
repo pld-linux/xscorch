@@ -12,7 +12,6 @@ Icon:		xscorch.xpm
 URL:		http://velius.chaos2.org/xscorch/
 BuildRequires:	gtk+-devel
 BuildRequires:	xpm-devel
-BuildRequires:	automake
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -35,7 +34,6 @@ not been implemented.
 %setup -q
 
 %build
-automake
 LDFLAGS="-s"; export LDFLAGS
 %configure
 %{__make}
