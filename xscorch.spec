@@ -1,12 +1,12 @@
 Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
 Summary(pl):	Xscorch - klon klasycznej gry "Scorched Earth"
 Name:		xscorch
-Version:	0.1.15
-Release:	2
+Version:	0.1.16
+Release:	1
 License:	GPL
 Group:		X11/Applications/Games
 Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
-# Source0-md5:	6bea7bfae61355cfedf2c673411bbe33
+# Source0-md5:	40784714254bc4d3e8e5cca66b0063bd
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
@@ -37,12 +37,13 @@ czo³gi, zanim oni zniszcz± twój.
 %setup -q
 
 %build
-rm -f missing
+#rm -f missing
 # rebuilding disabled due to problems with static linking in new libtool
 #%%{__libtoolize}
-%{__aclocal}
-%{__autoconf}
-%{__automake}
+#%{__aclocal}
+#%{__autoconf}
+#%{__automake}
+cp -f /usr/share/automake/config.sub .
 # sound disabled - it's useless (no sound files yet), so there is no
 # reason to require libmikmod
 %configure \
