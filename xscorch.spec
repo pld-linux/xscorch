@@ -38,7 +38,7 @@ czo³gi, zanim oni zniszcz± twój.
 
 %build
 %{__libtoolize}
-aclocal
+%{__aclocal}
 %{__autoconf}
 %{__automake}
 %configure \
