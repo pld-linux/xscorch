@@ -1,6 +1,6 @@
 Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
 Name:		xscorch
-Version:	0.1.11a
+Version:	0.1.12
 Release:	1
 License:	GPL
 Group:		X11/Games
@@ -10,7 +10,10 @@ Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
 URL:		http://velius.chaos2.org/xscorch/
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+-devel
+BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -33,6 +36,10 @@ not been implemented.
 %setup -q
 
 %build
+libtoolize --copy --force
+aclocal
+autoconf
+automake -a -c
 %configure \
 	--enable-network
 %{__make}
