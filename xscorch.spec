@@ -13,8 +13,8 @@ Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	gtk+-devel
-BuildRequires:	libmikmod-devel
+BuildRequires:	gtk+-devel >= 1.2.0
+BuildRequires:	libmikmod-devel >= 3.1.9
 #BuildRequires:	libtool
 BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
