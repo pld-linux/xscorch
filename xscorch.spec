@@ -9,7 +9,7 @@ Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
 # Source0-md5:	40784714254bc4d3e8e5cca66b0063bd
 Source1:	%{name}.png
 Source2:	%{name}.desktop
-#Icon:		xscorch.xpm
+Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
 BuildRequires:	autoconf
 BuildRequires:	automake
