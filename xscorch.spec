@@ -55,14 +55,13 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/pixmaps,%{_applnkdir}/Games}
 install %{SOURCE1} $RPM_BUILD_ROOT%{_datadir}/pixmaps
 install %{SOURCE2} $RPM_BUILD_ROOT%{_applnkdir}/Games
 
-gzip -9nf README NEWS AUTHORS ChangeLog TODO
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc *.gz
+%doc README NEWS AUTHORS ChangeLog TODO
 %attr(755,root,root) %{_bindir}/*
 %{_mandir}/man6/*
 %{_datadir}/xscorch
