@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=Xscorch
+Comment=A Scorched Earth clone
+Comment[pl]=Klon gry Scorched Earth
+Exec=xscorch
+Icon=xscorch.png
+Terminal=0
+Type=Application
