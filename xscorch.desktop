@@ -7,5 +7,5 @@ Exec=xscorch
 Icon=xscorch.png
 Terminal=false
 Type=Application
-Categories=Game;
+Categories=Game;StrategyGame;
 # vi: encoding=utf-8
