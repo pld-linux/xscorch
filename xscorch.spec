@@ -9,6 +9,7 @@ Group(pl):	X11/Gry
 Source0:	http://velius.chaos2.org/xscorch/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
+Patch0:		%{name}-%{version}-%{version}a.patch
 Icon:		xscorch.xpm
 URL:		http://velius.chaos2.org/xscorch/
 BuildRequires:	autoconf
@@ -36,6 +37,7 @@ czo³gi, zanim oni zniszcz± twój.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 libtoolize --copy --force
