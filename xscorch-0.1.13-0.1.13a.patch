@@ -1,0 +1,110 @@
+? xscorch/sgame/.deps
+Index: xscorch/sgame/saccessory.h
+===================================================================
+RCS file: /fridge/cvs/xscorch/sgame/saccessory.h,v
+retrieving revision 1.15
+diff -u -r1.15 saccessory.h
+--- xscorch/sgame/saccessory.h	2001/07/12 06:20:28	1.15
++++ xscorch/sgame/saccessory.h	2001/07/22 20:01:33
+@@ -40,7 +40,7 @@
+ #define  SC_ACCESSORY_HASH_BITS     10       /* Must be smaller than bits in int */
+ #define  SC_ACCESSORY_HASH_SIZE     (1 << SC_ACCESSORY_HASH_BITS)  /* duh ... */
+ #define  SC_ACCESSORY_MAX_ID        10000    /* Allow lots of accessories */
+-#define  SC_ACCESSORY_DEFAULT       0        /* Default selected accessory */
++#define  SC_ACCESSORY_DEFAULT(ac)   (sc_accessory_first((ac), SC_ACCESSORY_LIMIT_ALL))
+ 
+ 
+ /* Data on the various types of accessories */
+Index: xscorch/sgame/splayer.c
+===================================================================
+RCS file: /fridge/cvs/xscorch/sgame/splayer.c,v
+retrieving revision 1.28
+diff -u -r1.28 splayer.c
+--- xscorch/sgame/splayer.c	2001/07/12 06:20:28	1.28
++++ xscorch/sgame/splayer.c	2001/07/22 20:01:33
+@@ -105,8 +105,9 @@
+    p->contacttriggers = false;
+ 
+    /* Load weapons and accessories */
+-   p->selweapon = SC_WEAPON_DEFAULT;
+-   p->selshield = SC_ACCESSORY_DEFAULT;
++   /* TEMP HACK - Not safe if there are no weapons or accessories. - JL */
++   p->selweapon = SC_WEAPON_DEFAULT(c->weapons)->ident;
++   p->selshield = SC_ACCESSORY_DEFAULT(c->accessories)->ident;
+    sc_weapon_free_chain(&p->weapons);
+    sc_shield_free(&p->shield);
+ 
+@@ -315,9 +316,8 @@
+    
+    /* Always advance, unless CHECK_CUR is set */
+    if(!(flags & SC_PLAYER_SHIELD_CHECK_CUR)) {
+-      /* If we're on the DEFAULT accessory, 
+-         then try to find the best shields */
+-      if(info->ident == SC_ACCESSORY_DEFAULT) {
++      /* If we're not on a shield, try to find one. */
++      if(!SC_ACCESSORY_IS_SHIELD(info)) {
+          info = sc_shield_find_best(c, p);
+       } else {
+          info = sc_accessory_next(c->accessories, info->ident, SC_ACCESSORY_LIMIT_ALL);
+@@ -333,7 +333,7 @@
+    /* Were we successful? */
+    if(info == NULL || !SC_ACCESSORY_IS_SHIELD(info) || info->inventories[p->index] <= 0) {
+       /* No shields left; fall back to the default */
+-      info = sc_accessory_lookup(c->accessories, SC_ACCESSORY_DEFAULT, SC_ACCESSORY_LIMIT_ALL);
++      info = SC_ACCESSORY_DEFAULT(c->accessories);
+       if(info == NULL) {
+          fprintf(stderr, "warning: no default accessory found! aborting...\n");
+          return;
+@@ -427,10 +427,11 @@
+    /* Sanity checks */
+    if(c == NULL || p == NULL || info == NULL) return;
+ 
+-   /* Make sure index is sane, and player has that shield */
+-   if(info->inventories[p->index] <= 0) return;
+-   if(!SC_ACCESSORY_IS_SHIELD(info) && info->ident != SC_ACCESSORY_DEFAULT) return;
+-   p->selshield = info->ident;
++   /* Make sure info is a shield, and player has that shield */
++   if(info->inventories[p->index] > 0 && SC_ACCESSORY_IS_SHIELD(info))
++      p->selshield = info->ident;
++   else
++      return;
+ 
+    /* Update state */
+    #if USE_NETWORK
+Index: xscorch/sgame/sweapon.c
+===================================================================
+RCS file: /fridge/cvs/xscorch/sgame/sweapon.c,v
+retrieving revision 1.42
+diff -u -r1.42 sweapon.c
+--- xscorch/sgame/sweapon.c	2001/07/13 01:27:04	1.42
++++ xscorch/sgame/sweapon.c	2001/07/22 20:01:34
+@@ -888,8 +888,11 @@
+       }
+ 
+    /* Decrement player weapon inventory */
+-   if(!SC_WEAPON_IS_INFINITE(i) && (--(i->inventories[p->index]) <= 0))
+-      p->selweapon = SC_WEAPON_DEFAULT;
++   if(!SC_WEAPON_IS_INFINITE(i) && (--(i->inventories[p->index]) <= 0)) {
++      /* We ran out, so return to the default weapon. */
++      i = SC_WEAPON_DEFAULT(c->weapons);
++      if(i != NULL) p->selweapon = i->ident;
++   }
+ 
+    /* This is quite important, despite being usually free(NULL). */
+    free(ti);
+Index: xscorch/sgame/sweapon.h
+===================================================================
+RCS file: /fridge/cvs/xscorch/sgame/sweapon.h,v
+retrieving revision 1.42
+diff -u -r1.42 sweapon.h
+--- xscorch/sgame/sweapon.h	2001/07/14 05:29:24	1.42
++++ xscorch/sgame/sweapon.h	2001/07/22 20:01:34
+@@ -43,7 +43,7 @@
+ #define  SC_WEAPON_HASH_BITS        10       /* Must be smaller than bits in int */
+ #define  SC_WEAPON_HASH_SIZE        (1 << SC_WEAPON_HASH_BITS)  /* duh ... */
+ #define  SC_WEAPON_MAX_ID           10000    /* Allow lots of weapons */
+-#define  SC_WEAPON_DEFAULT          0        /* Default selected weapon */
++#define  SC_WEAPON_DEFAULT(wc)      (sc_weapon_first((wc), SC_WEAPON_LIMIT_ALL))
+ 
+ 
+ /* Basic weapon constants */
