@@ -5,11 +5,11 @@ Version:	0.1.14
 Release:	1
 License:	GPL
 Group:		X11/Applications/Games
-Source0:	http://velius.chaos2.org/xscorch/%{name}-%{version}.tar.gz
+Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
-URL:		http://velius.chaos2.org/xscorch/
+URL:		http://chaos2.org/xscorch/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	gtk+-devel
