@@ -15,7 +15,7 @@ URL:		http://chaos2.org/xscorch/
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.2.0
 #BuildRequires:	libmikmod-devel >= 3.1.9
-BuildRequires:	pkgconfig >= 0.7
+BuildRequires:	pkgconfig >= 1:0.7
 BuildRequires:	readline-devel
 Requires:	gtk+2 >= 2.2.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
