@@ -10,11 +10,11 @@ Source1:	%{name}.png
 Source2:	%{name}.desktop
 Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
-#BuildRequires:	autoconf
-#BuildRequires:	automake
+BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	gtk+-devel
-BuildRequires:	readline-devel
 #BuildRequires:	libtool
+BuildRequires:	readline-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %define		_prefix		/usr/X11R6
@@ -38,11 +38,12 @@ czo³gi, zanim oni zniszcz± twój.
 %setup -q
 
 %build
+rm -f missing
 # rebuilding disabled due to problems with static linking in new libtool
 #%{__libtoolize}
-#%{__aclocal}
-#%{__autoconf}
-#%{__automake}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 # sound disabled - it's useless (no sound files yet), so there is no
 # reason to require libmikmod
 %configure \
