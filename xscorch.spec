@@ -1,6 +1,6 @@
 Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
 Name:		xscorch
-Version:	0.1.11
+Version:	0.1.11a
 Release:	1
 License:	GPL
 Group:		X11/Games
