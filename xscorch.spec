@@ -13,7 +13,7 @@ Patch0:		%{name}-gtk24.patch
 Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
 BuildRequires:	automake
-BuildRequires:	gtk+2-devel >= 2.2.0
+BuildRequires:	gtk+2-devel >= 2:2.2.0
 #BuildRequires:	libmikmod-devel >= 3.1.9
 BuildRequires:	pkgconfig >= 0.7
 BuildRequires:	readline-devel
