@@ -29,7 +29,7 @@ angle of your turret and firing power, and you hope to destroy their
 tank before they destroy yours.
 
 %description -l pl
-Xscroch to klon klasycznej gry "Scorched Earth". Celem gry jest
+Xscorch to klon klasycznej gry "Scorched Earth". Celem gry jest
 zniszczenie czo³gów przeciwników przy pomocy naprawdê mocnych broni
 :-). Po prostu kupujesz broñ, celujesz do przeciwnika ustawiaj±c k±t
 podniesienia lufy oraz si³ê strza³u i masz nadziejê, ¿e zniszczysz ich
