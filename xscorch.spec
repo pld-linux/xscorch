@@ -37,7 +37,7 @@ czo³gi, zanim oni zniszcz± twój.
 %setup -q
 
 %build
-libtoolize --copy --force
+%{__libtoolize}
 aclocal
 %{__autoconf}
 %{__automake}
