@@ -1,0 +1,54 @@
+Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
+Name:		xscorch
+Version:	0.1.0
+Release:	1
+License:	GPL
+Group:		X11/Games
+Group(pl):	X11/Gry
+Source0:	http://velius.chaos2.org/xscorch/%{name}-%{version}.tar.gz
+URL:		http://velius.chaos2.org/xscorch/
+BuildRequires:	esound-devel
+BuildRequires:	gtk+-devel
+BuildRequires:	imlib-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+
+%define		_prefix		/usr/X11R6
+%define		_mandir		%{_prefix}/man
+
+%description
+Xscorch is a clone of the classic DOS game, "Scorched Earth". The basic goal
+is to annihilate enemy tanks using overpowered guns :). Basically, you buy
+weapons, you target the enemy by adjusting the angle of your turret and
+firing power, and you hope to destroy their tank before they destroy yours.
+
+We cloned this game in Linux because we were bored, and happen to be great
+fans of the original game. The game currently has enough features to make it
+playable: human and AI gameplay, some destructive weapons, and shields.
+Currently, accessories other than shields have not been implemented.
+
+%prep
+rm -rf $RPM_BUILD_ROOT
+
+%setup -q
+
+%build
+LDFLAGS="-s"; export LDFLAGS
+%configure
+make
+
+%install
+rm -rf $RPM_BUILD_ROOT
+make install \
+	DESTDIR=$RPM_BUILD_ROOT
+
+gzip -9nf README NEWS AUTHORS ChangeLog TODO
+
+%find_lang %{name}
+
+%clean
+rm -rf $RPM_BUILD_ROOT
+
+%files -f %{name}.lang
+%defattr(644,root,root,755)
+%doc *.gz
+%attr(755,root,root) %{_bindir}/*
