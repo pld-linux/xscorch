@@ -10,7 +10,6 @@ Source0:	http://chaos2.org/xscorch/%{name}-%{version}.tar.gz
 Source1:	%{name}.png
 Source2:	%{name}.desktop
 Patch0:		%{name}-gtk24.patch
-Icon:		xscorch.xpm
 URL:		http://chaos2.org/xscorch/
 BuildRequires:	automake
 BuildRequires:	gtk+2-devel >= 2:2.2.0
