@@ -1,5 +1,5 @@
 Summary:	Xscorch - clone of the classic DOS game "Scorched Earth"
-Summary(pl):	Xscorch - klon klasycznej gry "Scorched Earth"
+Summary(pl.UTF-8):   Xscorch - klon klasycznej gry "Scorched Earth"
 Name:		xscorch
 Version:	0.2.0
 Release:	3
@@ -26,12 +26,12 @@ Basically, you buy weapons, you target the enemy by adjusting the
 angle of your turret and firing power, and you hope to destroy their
 tank before they destroy yours.
 
-%description -l pl
+%description -l pl.UTF-8
 Xscorch to klon klasycznej gry "Scorched Earth". Celem gry jest
-zniszczenie czo³gów przeciwników przy pomocy naprawdê mocnych broni
-:-). Po prostu kupujesz broñ, celujesz do przeciwnika ustawiaj±c k±t
-podniesienia lufy oraz si³ê strza³u i masz nadziejê, ¿e zniszczysz ich
-czo³gi, zanim oni zniszcz± twój.
+zniszczenie czoÅ‚gÃ³w przeciwnikÃ³w przy pomocy naprawdÄ™ mocnych broni
+:-). Po prostu kupujesz broÅ„, celujesz do przeciwnika ustawiajÄ…c kÄ…t
+podniesienia lufy oraz siÅ‚Ä™ strzaÅ‚u i masz nadziejÄ™, Å¼e zniszczysz ich
+czoÅ‚gi, zanim oni zniszczÄ… twÃ³j.
 
 %prep
 %setup -q
